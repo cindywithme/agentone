@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dashboard_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -6,52 +7,59 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(24),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  Icons.smart_toy_rounded,
-                  size: 90,
-                  color: Theme.of(context).colorScheme.primary,
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(
+                Icons.smart_toy,
+                size: 100,
+              ),
+
+              const SizedBox(height: 30),
+
+              const Text(
+                'Welcome to AgentOne',
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
                 ),
+                textAlign: TextAlign.center,
+              ),
 
-                const SizedBox(height: 30),
+              const SizedBox(height: 15),
 
-                Text(
-                  'Welcome to AgentOne',
-                  style: Theme.of(context).textTheme.headlineMedium,
-                  textAlign: TextAlign.center,
+              const Text(
+                'Your AI assistant is ready to help automate your workflow.',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 18,
                 ),
+              ),
 
-                const SizedBox(height: 15),
+              const SizedBox(height: 50),
 
-                Text(
-                  'Your intelligent AI assistant for automation, productivity and everyday tasks.',
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
-
-                const SizedBox(height: 40),
-
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 16),
-                      child: Text(
-                        'Get Started',
-                        style: TextStyle(fontSize: 18),
+              SizedBox(
+                width: double.infinity,
+                height: 55,
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const DashboardScreen(),
                       ),
-                    ),
+                    );
+                  },
+                  child: const Text(
+                    'Get Started',
+                    style: TextStyle(fontSize: 18),
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
